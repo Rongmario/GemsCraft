@@ -12,13 +12,12 @@ public class GCWorldGenerator implements IWorldGenerator
 {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider c, IChunkProvider d)
     {
-        switch (world.provider.dimensionId)
-        {
-            case -1: genNether(world, random, chunkX * 16, chunkZ * 16);
-            case 0: genSurface(world, random, chunkX * 16, chunkZ * 16);
-            case 1: genEnd(world, random, chunkX * 16, chunkZ * 16);
-            default: genOther(world, random, chunkX * 16, chunkZ * 16);
-        }
+        int dimID = world.provider.dimensionId;
+        
+        if      (dimID == 0)   genSurface(world, random, chunkX * 16, chunkZ * 16);
+        else if (dimID == -1)  genNether(world, random, chunkX * 16, chunkZ * 16);
+        else if (dimID == 1)   genEnd(world, random, chunkX * 16, chunkZ * 16);
+        else                   genOther(world, random, chunkX * 16, chunkZ * 16);
     }
         
     public void genSurface(World world, Random random, int chunkX, int chunkZ)
@@ -30,7 +29,7 @@ public class GCWorldGenerator implements IWorldGenerator
             x = chunkX + random.nextInt(16);
             y = random.nextInt(GCProperties.amethystOreHeight);
             z = chunkZ + random.nextInt(16);
-            (new WorldGenMinable(GCProperties.blockGemOreID, 8, 0, Block.stone.blockID)).generate(world, random, x, y, z);
+            new WorldGenMinable(GCProperties.blockGemOreID, 0, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
         for (gen = 0; gen < GCProperties.rubyVeinCount; gen++)
@@ -38,7 +37,7 @@ public class GCWorldGenerator implements IWorldGenerator
             x = chunkX + random.nextInt(16);
             y = random.nextInt(GCProperties.rubyOreHeight);
             z = chunkZ + random.nextInt(16);
-            (new WorldGenMinable(GCProperties.blockGemOreID, 8, 1, Block.stone.blockID)).generate(world, random, x, y, z);
+            new WorldGenMinable(GCProperties.blockGemOreID, 1, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
         for (gen = 0; gen < GCProperties.sapphireVeinCount; gen++)
@@ -46,7 +45,7 @@ public class GCWorldGenerator implements IWorldGenerator
             x = chunkX + random.nextInt(16);
             y = random.nextInt(GCProperties.sapphireOreHeight);
             z = chunkZ + random.nextInt(16);
-            (new WorldGenMinable(GCProperties.blockGemOreID, 8, 2, Block.stone.blockID)).generate(world, random, x, y, z);
+            new WorldGenMinable(GCProperties.blockGemOreID, 2, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
         for (gen = 0; gen < GCProperties.emeraldVeinCount; gen++)
@@ -54,7 +53,7 @@ public class GCWorldGenerator implements IWorldGenerator
             x = chunkX + random.nextInt(16);
             y = random.nextInt(GCProperties.emeraldOreHeight);
             z = chunkZ + random.nextInt(16);
-            (new WorldGenMinable(GCProperties.blockGemOreID, 8, 3, Block.stone.blockID)).generate(world, random, x, y, z);
+            new WorldGenMinable(GCProperties.blockGemOreID, 3, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
         for (gen = 0; gen < GCProperties.topazVeinCount; gen++)
@@ -62,7 +61,7 @@ public class GCWorldGenerator implements IWorldGenerator
             x = chunkX + random.nextInt(16);
             y = random.nextInt(GCProperties.topazOreHeight);
             z = chunkZ + random.nextInt(16);
-            (new WorldGenMinable(GCProperties.blockGemOreID, 8, 4, Block.stone.blockID)).generate(world, random, x, y, z);
+            new WorldGenMinable(GCProperties.blockGemOreID, 4, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
         for (gen = 0; gen < GCProperties.pyriteVeinCount; gen++)
@@ -70,7 +69,7 @@ public class GCWorldGenerator implements IWorldGenerator
             x = chunkX + random.nextInt(16);
             y = random.nextInt(GCProperties.pyriteOreHeight);
             z = chunkZ + random.nextInt(16);
-            (new WorldGenMinable(GCProperties.blockGemOreID, 4, 5, Block.stone.blockID)).generate(world, random, x, y, z);
+            new WorldGenMinable(GCProperties.blockGemOreID, 5, 4, Block.stone.blockID).generate(world, random, x, y, z);
         }
     }
 
@@ -83,7 +82,7 @@ public class GCWorldGenerator implements IWorldGenerator
             x = chunkX + random.nextInt(16);
             y = random.nextInt(GCProperties.bdOreHeight);
             z = chunkZ + random.nextInt(16);
-            (new WorldGenMinable(GCProperties.blockGemOreID, 4, 6, Block.netherrack.blockID)).generate(world, random, x, y, z);
+            new WorldGenMinable(GCProperties.blockGemOreID, 6, 4, Block.netherrack.blockID).generate(world, random, x, y, z);
         }
     }
 

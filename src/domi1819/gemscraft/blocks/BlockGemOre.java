@@ -14,28 +14,23 @@ import net.minecraft.util.MathHelper;
 
 public class BlockGemOre extends Block
 {
-    public static Icon[] textures = {null, null, null, null, null, null, null};
+    public static Icon[] textures = new Icon[7];
     
     public BlockGemOre(int blockID)
     {
         super(blockID, Material.rock);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
-
-    public String getTextureFile()
-    {
-        return "/domi1819/gemscraft/img/blocks.png";
-    }
     
-    public void func_94332_a(IconRegister iconRegistry)
+    public void registerIcons(IconRegister iconRegistry)
     {
-        textures[0] = iconRegistry.func_94245_a("gc_blockAmethystOre");
-        textures[1] = iconRegistry.func_94245_a("gc_blockRubyOre");
-        textures[2] = iconRegistry.func_94245_a("gc_blockSapphireOre");
-        textures[3] = iconRegistry.func_94245_a("gc_blockEmeraldOre");
-        textures[4] = iconRegistry.func_94245_a("gc_blockTopazOre");
-        textures[5] = iconRegistry.func_94245_a("gc_blockPyriteOre");
-        textures[6] = iconRegistry.func_94245_a("gc_blockBlackDiamondOre");
+        textures[0] = iconRegistry.registerIcon("gc_blockAmethystOre");
+        textures[1] = iconRegistry.registerIcon("gc_blockRubyOre");
+        textures[2] = iconRegistry.registerIcon("gc_blockSapphireOre");
+        textures[3] = iconRegistry.registerIcon("gc_blockEmeraldOre");
+        textures[4] = iconRegistry.registerIcon("gc_blockTopazOre");
+        textures[5] = iconRegistry.registerIcon("gc_blockPyriteOre");
+        textures[6] = iconRegistry.registerIcon("gc_blockBlackDiamondOre");
     }
     
     public Icon getBlockTextureFromSideAndMetadata(int side, int meta)

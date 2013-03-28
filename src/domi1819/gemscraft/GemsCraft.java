@@ -14,7 +14,7 @@ import domi1819.gemscraft.util.GCEnums;
 import domi1819.gemscraft.util.GCProperties;
 import domi1819.gemscraft.util.GCWorldGenerator;
 
-@Mod(modid = "GemsCraft", name = "GemsCraft", version = "2.7")
+@Mod(modid = "GemsCraft", name = "GemsCraft", version = "2.8")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class GemsCraft
 {

@@ -62,11 +62,11 @@ public class GCLocalization
         MultiLanguageRegistry.addObjectNames(GCItems.ptaxe, "Pyrite Axe", "Pyritaxt");
         MultiLanguageRegistry.addObjectNames(GCItems.ptsword, "Pyrite Sword", "Pyritschwert");
         MultiLanguageRegistry.addObjectNames(GCItems.pthoe, "Pyrite Hoe", "Pyritfeldhacke");
-        MultiLanguageRegistry.addObjectNames(GCItems.bdshovel, "Black Diamond Shovel", "\247CSchwarzer Diamant-Schaufel");
-        MultiLanguageRegistry.addObjectNames(GCItems.bdpickaxe, "Black Diamond Pickaxe", "\247CSchwarzer Diamant-Spitzhacke");
-        MultiLanguageRegistry.addObjectNames(GCItems.bdaxe, "Black Diamond Axe", "\247CSchwarzer Diamant-Axt");
-        MultiLanguageRegistry.addObjectNames(GCItems.bdsword, "Black Diamond Sword", "\247CSchwarzer Diamant-Schwert");
-        MultiLanguageRegistry.addObjectNames(GCItems.bdhoe, "Black Diamond Hoe", "\247CSchwarzer Diamant-Feldhacke");
+        MultiLanguageRegistry.addObjectNames(GCItems.bdshovel, "\247CBlack Diamond Shovel", "\247CSchwarzer Diamant-Schaufel");
+        MultiLanguageRegistry.addObjectNames(GCItems.bdpickaxe, "\247CBlack Diamond Pickaxe", "\247CSchwarzer Diamant-Spitzhacke");
+        MultiLanguageRegistry.addObjectNames(GCItems.bdaxe, "\247CBlack Diamond Axe", "\247CSchwarzer Diamant-Axt");
+        MultiLanguageRegistry.addObjectNames(GCItems.bdsword, "\247CBlack Diamond Sword", "\247CSchwarzer Diamant-Schwert");
+        MultiLanguageRegistry.addObjectNames(GCItems.bdhoe, "\247CBlack Diamond Hoe", "\247CSchwarzer Diamant-Feldhacke");
 
         MultiLanguageRegistry.addObjectNames(GCItems.aahelmet, "Amethyst Helmet", "Amethysthelm");
         MultiLanguageRegistry.addObjectNames(GCItems.aaplate, "Amethyst Chestplate", "Amethystbrustpanzer");

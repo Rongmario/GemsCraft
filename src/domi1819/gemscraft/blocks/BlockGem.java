@@ -18,7 +18,7 @@ import net.minecraft.block.material.Material;
 
 public class BlockGem extends Block
 {
-    public static Icon[] textures = {null, null, null, null, null, null, null};
+    public static Icon[] textures = new Icon[7];
 
     public BlockGem(int blockID)
     {
@@ -26,28 +26,20 @@ public class BlockGem extends Block
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
-    public String getTextureFile()
-    {
-        return "/domi1819/gemscraft/img/blocks.png";
-    }
-
     public int damageDropped(int meta)
     {
         return meta;
     }
-
-    //public void loadTextures(IconRegister obj)
-    //I'd have helped to deobfuscate them if Searge hadn't ignore me >_<
-    public void func_94332_a(IconRegister iconRegistry)
+    
+    public void registerIcons(IconRegister iconRegistry)
     {
-        //func_94245_a = getIconFromString
-        textures[0] = iconRegistry.func_94245_a("gc_blockAmethyst");
-        textures[1] = iconRegistry.func_94245_a("gc_blockRuby");
-        textures[2] = iconRegistry.func_94245_a("gc_blockSapphire");
-        textures[3] = iconRegistry.func_94245_a("gc_blockEmerald");
-        textures[4] = iconRegistry.func_94245_a("gc_blockTopaz");
-        textures[5] = iconRegistry.func_94245_a("gc_blockPyrite");
-        textures[6] = iconRegistry.func_94245_a("gc_blockBlackDiamond");
+        textures[0] = iconRegistry.registerIcon("gc_blockAmethyst");
+        textures[1] = iconRegistry.registerIcon("gc_blockRuby");
+        textures[2] = iconRegistry.registerIcon("gc_blockSapphire");
+        textures[3] = iconRegistry.registerIcon("gc_blockEmerald");
+        textures[4] = iconRegistry.registerIcon("gc_blockTopaz");
+        textures[5] = iconRegistry.registerIcon("gc_blockPyrite");
+        textures[6] = iconRegistry.registerIcon("gc_blockBlackDiamond");
     }
     
     public Icon getBlockTextureFromSideAndMetadata(int side, int meta)
@@ -77,7 +69,7 @@ public class BlockGem extends Block
                     if (entityplayer.getCurrentEquippedItem().getItem() == Item.diamond && entityplayer.getCurrentEquippedItem().stackSize > 1)
                     {
                         entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, new ItemStack(entityplayer.getCurrentEquippedItem().itemID, entityplayer.getCurrentEquippedItem().stackSize - 2, 0));
-                        world.setBlockAndMetadataWithNotify(x, y + 1, z, 0, 0, 1);
+                        world.setBlock(x, y + 1, z, 0, 0, 3);
                         this.dropBlockAsItem_do(world, x, y, z, new ItemStack(GCItems.blackDiamond, 1));
                         entityplayer.attackEntityFrom(DamageSource.onFire, 16);
                         return true;
@@ -86,7 +78,7 @@ public class BlockGem extends Block
                     if (entityplayer.getCurrentEquippedItem().getItem() == Item.ingotGold && entityplayer.getCurrentEquippedItem().stackSize > 1)
                     {
                         entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, new ItemStack(entityplayer.getCurrentEquippedItem().itemID, entityplayer.getCurrentEquippedItem().stackSize - 2, 0));
-                        world.setBlockAndMetadataWithNotify(x, y + 1, z, 0, 0, 1);
+                        world.setBlock(x, y + 1, z, 0, 0, 3);
                         this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.diamond, 1));
                         entityplayer.attackEntityFrom(DamageSource.onFire, 12);
                         return true;
