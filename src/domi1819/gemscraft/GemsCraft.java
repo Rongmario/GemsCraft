@@ -40,7 +40,6 @@ public class GemsCraft
     @PostInit
     public void postInit(FMLPostInitializationEvent event)
     {
-        //Disabled until next update
         //IndustrialCraftIntegration.initPlugin();
         //GregTechIntegration.initPlugin();
     }
