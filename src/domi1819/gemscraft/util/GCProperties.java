@@ -55,13 +55,21 @@ public class GCProperties
         blackDiamondArmorBaseID = config.get("item", "Black Diamond Armor Base ID", 3920).getInt();
         
         increaseDiamondOreHarvestLvl = config.get("general", "Diamond Ore harvest level fix", true).getBoolean(true);
+
+        generateAmethyst = config.get("general",  "Generate Amethyst Ore", true).getBoolean(true);
+        generateRuby = config.get("general",  "Generate Ruby Ore", true).getBoolean(true);
+        generateSapphire = config.get("general",  "Generate Sapphire Ore", true).getBoolean(true);
+        generateEmerald = config.get("general",  "Generate Emerald Ore", false).getBoolean(false);
+        generateTopaz = config.get("general",  "Generate Topaz Ore", true).getBoolean(true);
+        generatePyrite = config.get("general",  "Generate Pyrite Ore", true).getBoolean(true);
+        generateBlackDiamond = config.get("general",  "Generate Black Diamond Ore", true).getBoolean(true);
         
         amethystVeinCount = config.get("general", "Amethyst Veins per Chunk", 2).getInt();
         rubyVeinCount = config.get("general", "Ruby Veins per Chunk", 1).getInt();
         sapphireVeinCount = config.get("general", "Sapphire Veins per Chunk", 2).getInt();
         emeraldVeinCount = config.get("general", "Emerald Veins per Chunk", 1).getInt();
         topazVeinCount = config.get("general", "Topaz Veins per Chunk", 2).getInt();
-        pyriteVeinCount = config.get("general", "Pyrite Veins per Chunk", 5).getInt();
+        pyriteVeinCount = config.get("general", "Pyrite Veins per Chunk", 4).getInt();
         bdVeinCount = config.get("general", "Black Diamond Veins per Chunk", 4).getInt();
         
         amethystOreHeight = config.get("general", "Amethyst max. Generation Height", 25).getInt();

@@ -1,7 +1,12 @@
 package domi1819.gemscraft.items;
 
+import domi1819.gemscraft.GCBlocks;
 import domi1819.gemscraft.util.GCProperties;
+import domi1819.gemscraft.util.WorldHelper;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
+import net.minecraft.world.World;
 
 public class ItemGemPickaxe extends ItemPickaxe
 {
@@ -13,6 +18,38 @@ public class ItemGemPickaxe extends ItemPickaxe
     public String getTextureFile()
     {
         return "/domi1819/gemscraft/img/items.png";
+    }
+    
+    public boolean onItemUseFirst(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    {
+    	if (!world.isRemote)
+    	if (itemStack.itemID == GCProperties.blackDiamondToolsBaseID + 1)
+        {
+        	ItemStack output = null;
+        	
+            if (itemStack.getItemDamage() < 2116)
+            {
+            	int block = world.getBlockId(x, y, z);
+            	
+            	if (block == Block.stone.blockID || block == Block.cobblestone.blockID)
+            		output = new ItemStack(Block.stone.blockID, 1, 0);
+            	else if (block == Block.oreGold.blockID)
+            		output = new ItemStack(Item.ingotGold.itemID, 1, 0);
+            	else if (block == Block.oreIron.blockID)
+            		output = new ItemStack(Item.ingotIron.itemID, 1, 0);
+            }
+            
+            if (output != null)
+            {
+            	world.setBlock(x, y, z, 0);
+            	WorldHelper.dropItemInWorld(world, x, y, z, output);
+            	itemStack.setItemDamage(itemStack.getItemDamage() + 5);
+            }
+            
+            return true;
+        }
+    	
+        return false;
     }
     
     public boolean getIsRepairable(ItemStack tool, ItemStack resource)

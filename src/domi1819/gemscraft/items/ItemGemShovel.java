@@ -1,7 +1,11 @@
 package domi1819.gemscraft.items;
 
 import domi1819.gemscraft.util.GCProperties;
+import domi1819.gemscraft.util.WorldHelper;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
+import net.minecraft.world.World;
 
 public class ItemGemShovel extends ItemSpade
 {
@@ -13,6 +17,36 @@ public class ItemGemShovel extends ItemSpade
     public String getTextureFile()
     {
         return "/domi1819/gemscraft/img/items.png";
+    }
+    
+    public boolean onItemUseFirst(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    {
+    	if (!world.isRemote)
+    	if (itemStack.itemID == GCProperties.blackDiamondToolsBaseID)
+        {
+        	ItemStack output = null;
+        	
+            if (itemStack.getItemDamage() < 2116)
+            {
+            	int block = world.getBlockId(x, y, z);
+            	
+            	if (block == Block.sand.blockID)
+            		output = new ItemStack(Block.glass.blockID, 1, 0);
+            	else if (block == Block.blockClay.blockID)
+            		output = new ItemStack(Item.brick.itemID, 4, 0);
+            }
+            
+            if (output != null)
+            {
+            	world.setBlock(x, y, z, 0);
+            	WorldHelper.dropItemInWorld(world, x, y, z, output);
+            	itemStack.setItemDamage(itemStack.getItemDamage() + 5);
+            }
+            
+            return true;
+        }
+    	
+        return false;
     }
     
     public boolean getIsRepairable(ItemStack tool, ItemStack resource)

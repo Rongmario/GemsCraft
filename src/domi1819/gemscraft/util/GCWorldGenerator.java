@@ -24,6 +24,7 @@ public class GCWorldGenerator implements IWorldGenerator
     {
         int gen, x, y, z;
         
+        if (GCProperties.generateAmethyst)
         for (gen = 0; gen < GCProperties.amethystVeinCount; gen++)
         {
             x = chunkX + random.nextInt(16);
@@ -32,6 +33,7 @@ public class GCWorldGenerator implements IWorldGenerator
             new WorldGenMinable(GCProperties.blockGemOreID, 0, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
+        if (GCProperties.generateRuby)
         for (gen = 0; gen < GCProperties.rubyVeinCount; gen++)
         {
             x = chunkX + random.nextInt(16);
@@ -40,6 +42,7 @@ public class GCWorldGenerator implements IWorldGenerator
             new WorldGenMinable(GCProperties.blockGemOreID, 1, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
+        if (GCProperties.generateSapphire)
         for (gen = 0; gen < GCProperties.sapphireVeinCount; gen++)
         {
             x = chunkX + random.nextInt(16);
@@ -48,6 +51,7 @@ public class GCWorldGenerator implements IWorldGenerator
             new WorldGenMinable(GCProperties.blockGemOreID, 2, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
+        if (GCProperties.generateEmerald)
         for (gen = 0; gen < GCProperties.emeraldVeinCount; gen++)
         {
             x = chunkX + random.nextInt(16);
@@ -55,7 +59,8 @@ public class GCWorldGenerator implements IWorldGenerator
             z = chunkZ + random.nextInt(16);
             new WorldGenMinable(GCProperties.blockGemOreID, 3, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
-
+        
+        if (GCProperties.generateTopaz)
         for (gen = 0; gen < GCProperties.topazVeinCount; gen++)
         {
             x = chunkX + random.nextInt(16);
@@ -64,6 +69,7 @@ public class GCWorldGenerator implements IWorldGenerator
             new WorldGenMinable(GCProperties.blockGemOreID, 4, 8, Block.stone.blockID).generate(world, random, x, y, z);
         }
 
+        if (GCProperties.generatePyrite)
         for (gen = 0; gen < GCProperties.pyriteVeinCount; gen++)
         {
             x = chunkX + random.nextInt(16);
@@ -77,6 +83,7 @@ public class GCWorldGenerator implements IWorldGenerator
     {
         int gen, x, y, z;
     	
+        if (GCProperties.generateBlackDiamond)
         for (gen = 0; gen < GCProperties.bdVeinCount; gen++)
         {
             x = chunkX + random.nextInt(16);

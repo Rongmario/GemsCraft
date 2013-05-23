@@ -33,7 +33,7 @@ public class BlockGemOre extends Block
         textures[6] = iconRegistry.registerIcon("gc_blockBlackDiamondOre");
     }
     
-    public Icon getBlockTextureFromSideAndMetadata(int side, int meta)
+    public Icon getIcon(int side, int meta)
     {
     	if (meta < 7) return textures[meta];
     	return null;
